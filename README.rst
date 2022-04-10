@@ -25,7 +25,7 @@ Design_Patterns_In_Python
 .. |Tests| image:: https://github.com/PyExplorer/design_patterns_in_python/workflows/Tests/badge.svg
    :target: https://github.com/PyExplorer/design_patterns_in_python/actions?workflow=Tests
    :alt: Tests
-.. |Codecov| image:: https://codecov.io/gh/PyExplorer/design_patterns_in_python/branch/main/graph/badge.svg
+.. |Codecov| image:: https://codecov.io/gh/PyExplorer/design_patterns_in_python/branch/main/graph/badge.svg?token=DZC9SMOSME
    :target: https://codecov.io/gh/PyExplorer/design_patterns_in_python
    :alt: Codecov
 .. |pre-commit| image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
