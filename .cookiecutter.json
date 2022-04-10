@@ -1,0 +1,12 @@
+{
+  "_template": "gh:cjolowicz/cookiecutter-hypermodern-python",
+  "author": "Taras Shevchenko",
+  "development_status": "Development Status :: 1 - Planning",
+  "email": "stgmont@gmail.com",
+  "friendly_name": "Design_Patterns_In_Python",
+  "github_user": "PyExplorer",
+  "license": "MIT",
+  "package_name": "design_patterns_in_python",
+  "project_name": "design_patterns_in_python",
+  "version": "0.0.0"
+}
