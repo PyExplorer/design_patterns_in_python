@@ -1,25 +1,16 @@
 Design_Patterns_In_Python
 =========================
 
-.. |PyPI| |Status| |Python Version| |License| |Read the Docs|
+|Python Version| |License|
 
 |Tests| |Codecov| |pre-commit| |Black|
 
-.. |PyPI| image:: https://img.shields.io/pypi/v/design_patterns_in_python.svg
-   :target: https://pypi.org/project/design_patterns_in_python/
-   :alt: PyPI
-.. |Status| image:: https://img.shields.io/pypi/status/design_patterns_in_python.svg
-   :target: https://pypi.org/project/design_patterns_in_python/
-   :alt: Status
 .. |Python Version| image:: https://img.shields.io/pypi/pyversions/design_patterns_in_python
    :target: https://pypi.org/project/design_patterns_in_python
    :alt: Python Version
 .. |License| image:: https://img.shields.io/pypi/l/design_patterns_in_python
    :target: https://opensource.org/licenses/MIT
    :alt: License
-.. |Read the Docs| image:: https://img.shields.io/readthedocs/design_patterns_in_python/latest.svg?label=Read%20the%20Docs
-   :target: https://design_patterns_in_python.readthedocs.io/
-   :alt: Read the documentation at https://design_patterns_in_python.readthedocs.io/
 .. |Tests| image:: https://github.com/PyExplorer/design_patterns_in_python/workflows/Tests/badge.svg
    :target: https://github.com/PyExplorer/design_patterns_in_python/actions?workflow=Tests
    :alt: Tests
