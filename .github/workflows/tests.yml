@@ -155,5 +155,5 @@ jobs:
       - name: Upload coverage report
         uses: codecov/codecov-action@v2.1.0
         with:
-          GITHUB_TOKEN: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
 
