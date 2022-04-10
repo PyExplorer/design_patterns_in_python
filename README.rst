@@ -1,11 +1,9 @@
 Design_Patterns_In_Python
 =========================
 
-|PyPI| |Status| |Python Version| |License|
+.. |PyPI| |Status| |Python Version| |License| |Read the Docs|
 
-|Read the Docs| |Tests| |Codecov|
-
-|pre-commit| |Black|
+|Tests| |Codecov| |pre-commit| |Black|
 
 .. |PyPI| image:: https://img.shields.io/pypi/v/design_patterns_in_python.svg
    :target: https://pypi.org/project/design_patterns_in_python/
