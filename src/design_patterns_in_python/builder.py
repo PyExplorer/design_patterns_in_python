@@ -1,32 +1,36 @@
+"""Builder pattern."""
 from __future__ import annotations
 
 from typing import Any
 
 
 class OneField:
-    """
-    Class for just one field
-    """
+    """Class for just one field."""
 
     indent_size = 2
 
     def __init__(self, name: str = "", value: Any = "") -> None:
+        """One field initialization.
+
+        :param name: field name,
+        :param value: field value
+        """
         self.name = name
         self.value = value
 
     def __str__(self) -> str:
+        """:return: string representation of field."""
         return f"self.{self.name} = {self.value}"
 
 
 class OneClass:
-    """
-    Class for one class
-    """
+    """Class for one class."""
 
     indent = 2
     fill = " "
 
     def __init__(self, name: str = "") -> None:
+        """Сlass initialization."""
         self.name = name
         self.fields: list[OneField] = list()
 
@@ -44,22 +48,29 @@ class OneClass:
         return "\n".join(lines)
 
     def __str__(self) -> str:
+        """Class string representation."""
         return self.__prepare_str()
 
 
 class CodeBuilder:
-    """
-    Class for builder (builder pattern)
-    """
+    """Class for builder (builder pattern)."""
 
     def __init__(self, class_name: str) -> None:
+        """Code builder string representation."""
         self.__class = OneClass(class_name)
 
     def add_field(self, name: str, value: Any) -> CodeBuilder:
+        """Main method for adding new fields.
+
+        :param name: fields name,
+        :param value: field value,
+        :return: class instance.
+        """
         self.__class.fields.append(OneField(name, value))
         return self
 
     def __str__(self) -> str:
+        """:return: str representation of CodeBuilder."""
         return self.__class.__str__()
 
 
