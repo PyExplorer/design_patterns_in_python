@@ -1,13 +1,11 @@
 """Builder pattern."""
-from __future__ import annotations
+from __future__ import annotations  # pragma: no cover
 
-from typing import Any
+from typing import Any  # pragma: no cover
 
 
 class OneField:
     """Class for just one field."""
-
-    indent_size = 2
 
     def __init__(self, name: str = "", value: Any = "") -> None:
         """One field initialization.
@@ -56,7 +54,7 @@ class CodeBuilder:
     """Class for builder (builder pattern)."""
 
     def __init__(self, class_name: str) -> None:
-        """Code builder string representation."""
+        """Init code builder."""
         self.__class = OneClass(class_name)
 
     def add_field(self, name: str, value: Any) -> CodeBuilder:
@@ -74,6 +72,11 @@ class CodeBuilder:
         return self.__class.__str__()
 
 
-cb = CodeBuilder("Person").add_field("name", "''").add_field("age", 0)
+def main():  # pragma: no cover
+    """Main."""
+    cb = CodeBuilder("Person").add_field("name", "''").add_field("age", 0)
+    print(cb)
 
-print(cb)
+
+if __name__ == "__main__":  # pragma: no cover
+    main()
