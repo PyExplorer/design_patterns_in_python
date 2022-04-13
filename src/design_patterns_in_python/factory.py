@@ -16,7 +16,7 @@ class Person:
 
 
 class PersonFactory:
-    """Person factory class"""
+    """Person factory class."""
 
     def __init__(self, start_index: int) -> None:
         """Initialization."""
