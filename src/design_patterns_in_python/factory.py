@@ -1,4 +1,4 @@
-"""Builder pattern."""
+"""Factory pattern."""
 from __future__ import annotations  # pragma: no cover
 
 
