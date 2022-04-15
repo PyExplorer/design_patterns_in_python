@@ -259,7 +259,7 @@ pyflakes = ">=2.4.0,<2.5.0"
 
 [[package]]
 name = "flake8-bandit"
-version = "3.0.0"
+version = "2.1.2"
 description = "Automated security testing with bandit and flake8."
 category = "dev"
 optional = false
