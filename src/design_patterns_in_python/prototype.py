@@ -17,7 +17,7 @@ class Point:
 class Line:
     """Line class."""
 
-    def __init__(self, start: Point = Point(), end: Point = Point()) -> None:
+    def __init__(self, start: Point = None, end: Point = None) -> None:
         """Initialization of the line."""
         self.start = start
         self.end = end
@@ -25,7 +25,7 @@ class Line:
     def __str__(self) -> str:
         return f"start: {self.start}, end: {self.end}"
 
-    def deep_copy(self) -> Line():
+    def deep_copy(self) -> Line:
         """Return a new instance of Line object as a deepcopy of existing one.
         It can be done as
         'return Line(start=deepcopy(self.start), end=deepcopy(self.end))'
