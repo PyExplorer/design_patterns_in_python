@@ -74,3 +74,7 @@ show_error_context = true
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+target_version = ["py38"]
+line_length = 120
