@@ -44,3 +44,10 @@ class TestSingleton:
         _ = Database(dict_db=self.test_db)
         Database.drop_instances()
         assert Database.is_clean() is True
+
+    def test_drop_instances_failed(self) -> None:
+        """Check if all instances are removed."""
+        _ = Database(dict_db=self.test_db)
+        Database.drop_instances()
+        Database.drop_instances()
+        assert Database.is_clean() is True
