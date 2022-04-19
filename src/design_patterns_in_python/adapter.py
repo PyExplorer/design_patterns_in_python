@@ -3,18 +3,18 @@ from __future__ import annotations  # pragma: no cover
 
 
 class Square:
-    """Just Square class"""
+    """Just Square class."""
 
     def __init__(self, side: float = 0) -> None:
         """Initialization."""
         self.side = side
 
-    def __str__(self):
+    def __str__(self) -> str:
         """String representation."""
         return f"Square {self.side} x {self.side}"
 
 
-def calculate_area(rc):
+def calculate_area(rc) -> float:
     """External function for rectangle square calculation."""
     return rc.width * rc.height
 
@@ -36,7 +36,7 @@ class SquareToRectangleAdapter:
         """Height."""
         return self.square.side
 
-    def __str__(self):
+    def __str__(self) -> str:
         """String representation."""
         return f"Square adapter: {self.width} x {self.height}"
 
