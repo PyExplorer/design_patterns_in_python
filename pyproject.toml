@@ -62,6 +62,7 @@ source = [
 [tool.coverage.report]
 show_missing = true
 fail_under = 100
+exclude_lines = ["@abstractmethod", "pragma: no cover"]
 
 [tool.mypy]
 strict = true
