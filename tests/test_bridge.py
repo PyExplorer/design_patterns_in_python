@@ -20,10 +20,22 @@ class TestShapes:
 
     def test_triangle_vector(self) -> None:
         """Test case for triangle as vector."""
-        sq = Triangle(VectorRenderer())
-        assert str(sq) == "Drawing Triangle as lines"
+        tr = Triangle(VectorRenderer())
+        assert str(tr) == "Drawing Triangle as lines"
 
     def test_triangle_pixels(self) -> None:
         """Test case for square as raster."""
-        sq = Triangle(RasterRenderer())
-        assert str(sq) == "Drawing Triangle as pixels"
+        tr = Triangle(RasterRenderer())
+        assert str(tr) == "Drawing Triangle as pixels"
+
+
+class TestRasters:
+    """Test case for renderer."""
+
+    def test_raster(self) -> None:
+        """Test case for raster."""
+        assert RasterRenderer().what_to_render_as == "pixels"
+
+    def test_vector(self) -> None:
+        """Test case for vector."""
+        assert VectorRenderer().what_to_render_as == "lines"
