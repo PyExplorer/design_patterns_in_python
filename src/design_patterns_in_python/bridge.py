@@ -1,14 +1,15 @@
 """Bridge pattern - a mechanism that decouples an interface (hierarchy) from an implementation (hierarchy)."""
 from abc import ABC
+from abc import abstractmethod
 
 
 class Renderer(ABC):
     """Abstract Renderer class."""
 
-    @property
-    def what_to_render_as(self):
+    @abstractmethod
+    def what_to_render_as(self) -> str:
         """Abstract property for future classes."""
-        return None
+        return ""
 
 
 class VectorRenderer(Renderer):
@@ -50,3 +51,15 @@ class Square(Shape):
 
     def __init__(self, renderer) -> None:  # noqa: D107
         super().__init__("Square", renderer)
+
+
+def main():  # pragma: no cover
+    """Main."""
+    print(str(Square(VectorRenderer())))
+    print(str(Square(RasterRenderer())))
+    print(str(Triangle(VectorRenderer())))
+    print(str(Triangle(RasterRenderer())))
+
+
+if __name__ == "__main__":  # pragma: no cover
+    main()
