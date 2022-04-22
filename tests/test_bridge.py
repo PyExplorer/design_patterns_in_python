@@ -1,5 +1,7 @@
 """Tests for classes with bridge pattern."""
+import pytest
 from src.design_patterns_in_python.bridge import RasterRenderer
+from src.design_patterns_in_python.bridge import Renderer
 from src.design_patterns_in_python.bridge import Square
 from src.design_patterns_in_python.bridge import Triangle
 from src.design_patterns_in_python.bridge import VectorRenderer
@@ -39,3 +41,8 @@ class TestRasters:
     def test_vector(self) -> None:
         """Test case for vector."""
         assert VectorRenderer().what_to_render_as == "lines"
+
+    def test_abc(self) -> None:
+        """Test abstract raster class."""
+        with pytest.raises(TypeError):
+            _ = Renderer().what_to_render_as
