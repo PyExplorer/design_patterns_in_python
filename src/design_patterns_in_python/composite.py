@@ -3,7 +3,6 @@
 A mechanism for treating individual (scalar) objects and compositions of objects in a uniform manner.
 """
 from abc import ABC
-from abc import abstractmethod
 from collections.abc import Iterable
 from typing import Iterator
 
