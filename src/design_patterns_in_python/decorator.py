@@ -1,4 +1,4 @@
-"""Decorator pattern (oop)
+"""Decorator pattern (OOP).
 
 Facilitates the addition of behaviors to individual objects without inheriting from them
 """
@@ -10,7 +10,7 @@ class Circle:
     def __init__(self, radius: float) -> None:  # noqa: D107
         self.radius = radius
 
-    def resize(self, factor: float) -> None:
+    def resize(self, factor: float) -> None:  # noqa: D102
         self.radius *= factor
 
     def __str__(self) -> str:  # noqa: D105
@@ -28,11 +28,13 @@ class Square:
 
 
 class ColoredShape:
+    """Decorator for the shapes."""
+
     def __init__(self, shape, color: str) -> None:  # noqa: D107
         self.color = color
         self.shape = shape
 
-    def resize(self, factor: float) -> None:
+    def resize(self, factor: float) -> None:  # noqa: D102
         if callable(getattr(self.shape, "resize", None)):
             self.shape.resize(factor)
 
