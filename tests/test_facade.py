@@ -6,17 +6,17 @@ from src.design_patterns_in_python.facade import Splitter
 from src.design_patterns_in_python.facade import Verifier
 
 
-class TestMagicSquareGenerator:
+class TestMagicSquareGenerator:  # noqa: D101
     def test_magic_square_generator(self):  # noqa: D102
         assert Verifier().verify(MagicSquareGenerator().generate(3))
 
 
-class TestGenerator:
+class TestGenerator:  # noqa: D101
     def test_generate(self):  # noqa: D102
         assert len(Generator.generate(5)) == 5
 
 
-class TestSplitter:
+class TestSplitter:  # noqa: D101
     def test_split(self):  # noqa: D102
         inp = [[5, 7, 1], [5, 7, 1], [5, 7, 1]]
         out = [
@@ -38,10 +38,16 @@ class TestSplitter:
 @pytest.mark.parametrize(
     "inp, expected",
     [
-        pytest.param([[7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7]], True),
-        pytest.param([[1, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7]], False),
+        pytest.param(
+            [[7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7]],
+            True
+        ),
+        pytest.param(
+            [[1, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7]],
+            False
+        ),
     ],
 )
-class TestVerifier:
-    def test_verify(self, inp, expected):
+class TestVerifier:  # noqa: D101
+    def test_verify(self, inp, expected):  # noqa: D102
         assert Verifier.verify(inp) == expected

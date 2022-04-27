@@ -1,5 +1,4 @@
-"""
-Facade pattern.
+"""Facade pattern.
 
 Provides a simple , easy to understand user interface over a large and sophisticated body of code.
 """
@@ -12,12 +11,14 @@ class Generator:
 
     @staticmethod
     def generate(count: int) -> List[int]:  # noqa: D102
-        return [randint(1, 9) for x in range(count)]
+        return [randint(1, 9) for x in range(count)]  # noqa: S311
 
 
 class Splitter:
     """This class takes a 2D list and splits it into all possible arrangements of 1D lists.
-    It gives you the columns, the rows and the two diagonals."""
+
+    It gives you the columns, the rows and the two diagonals.
+    """
 
     @staticmethod
     def split(array: List[List[int]]) -> List[List[int]]:  # noqa: D102
