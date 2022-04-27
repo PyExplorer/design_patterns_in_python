@@ -3,7 +3,7 @@
 Provides a simple , easy to understand user interface over a large and sophisticated body of code.
 """
 from random import randint
-from typing import List
+from typing import List, Union
 
 
 class Generator:
@@ -60,7 +60,10 @@ class Verifier:
     """This class takes a 2D list and verifies that the sum of elements in every sublist is the same."""
 
     @staticmethod
-    def verify(arrays: List[List[int]]) -> bool:  # noqa: D102
+    def verify(arrays: Union[List[List[int]], None]) -> bool:  # noqa: D102
+        if not arrays:
+            return False
+
         first = sum(arrays[0])
 
         for i in range(1, len(arrays)):
@@ -74,20 +77,20 @@ class MagicSquareGenerator:
     """The class simply generates the magic square of a given size."""
 
     @staticmethod
-    def generate(size: int) -> List[List[int]]:  # noqa: D102
+    def generate(size: int, steps: int = 100) -> Union[List[List[int]], None]:  # noqa: D102
         # return a magic square of the given size
         g = Generator()
         s = Splitter()
         v = Verifier()
-
-        while True:
+        step = 1
+        while True and step < steps:
             gen = g.generate(size)
             d2_list = [gen for _ in range(size)]
             if v.verify(s.split(d2_list)):
                 return d2_list
 
 
-def main(size):  # noqa: D102
+def main(size: int):  # noqa: D102
     msg = MagicSquareGenerator()
     print(msg.generate(size))
 
