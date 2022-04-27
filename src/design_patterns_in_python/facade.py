@@ -3,7 +3,8 @@
 Provides a simple , easy to understand user interface over a large and sophisticated body of code.
 """
 from random import randint
-from typing import List, Union
+from typing import List
+from typing import Union
 
 
 class Generator:
@@ -77,22 +78,23 @@ class MagicSquareGenerator:
     """The class simply generates the magic square of a given size."""
 
     @staticmethod
-    def generate(size: int, steps: int = 100) -> Union[List[List[int]], None]:  # noqa: D102
+    def generate(size: int, steps: int = 1000) -> Union[List[List[int]], None]:  # noqa: D102
         # return a magic square of the given size
         g = Generator()
         s = Splitter()
         v = Verifier()
-        step = 1
-        while True and step < steps:
+        step = 0
+        while step < steps:
             gen = g.generate(size)
             d2_list = [gen for _ in range(size)]
             if v.verify(s.split(d2_list)):
                 return d2_list
+            step += 1
+        return None
 
 
-def main(size: int):  # noqa: D102
-    msg = MagicSquareGenerator()
-    print(msg.generate(size))
+def main(size: int):  # noqa: D103
+    print(MagicSquareGenerator().generate(size))  # pragma: no cover
 
 
 if __name__ == "__main__":  # pragma: no cover

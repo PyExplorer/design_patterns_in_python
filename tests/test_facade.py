@@ -11,7 +11,7 @@ class TestMagicSquareGenerator:  # noqa: D101
         assert Verifier().verify(MagicSquareGenerator().generate(3))
 
     def test_magic_square_generator_false(self):  # noqa: D102
-        assert not Verifier().verify(MagicSquareGenerator().generate(3, 1))
+        assert not MagicSquareGenerator().generate(3, 1)
 
 
 class TestGenerator:  # noqa: D101
@@ -43,6 +43,7 @@ class TestSplitter:  # noqa: D101
     [
         pytest.param([[7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7]], True),
         pytest.param([[1, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7], [7, 7, 7]], False),
+        pytest.param(None, False),
     ],
 )
 class TestVerifier:  # noqa: D101
