@@ -1,16 +1,26 @@
+"""
+Facade pattern.
 
-
-
+Provides a simple , easy to understand user interface over a large and sophisticated body of code.
+"""
 from random import randint
+from typing import List
 
 
 class Generator:
-    def generate(self, count):
+    """This class generates a 1-dimensional list of random digits in range 1 to 9."""
+
+    @staticmethod
+    def generate(count: int) -> List[int]:  # noqa: D102
         return [randint(1, 9) for x in range(count)]
 
 
 class Splitter:
-    def split(self, array):
+    """This class takes a 2D list and splits it into all possible arrangements of 1D lists.
+    It gives you the columns, the rows and the two diagonals."""
+
+    @staticmethod
+    def split(array: List[List[int]]) -> List[List[int]]:  # noqa: D102
         result = []
 
         row_count = len(array)
@@ -46,7 +56,10 @@ class Splitter:
 
 
 class Verifier:
-    def verify(self, arrays):
+    """This class takes a 2D list and verifies that the sum of elements in every sublist is the same."""
+
+    @staticmethod
+    def verify(arrays: List[List[int]]) -> bool:  # noqa: D102
         first = sum(arrays[0])
 
         for i in range(1, len(arrays)):
@@ -57,7 +70,10 @@ class Verifier:
 
 
 class MagicSquareGenerator:
-    def generate(self, size):
+    """The class simply generates the magic square of a given size."""
+
+    @staticmethod
+    def generate(size: int) -> List[List[int]]:  # noqa: D102
         # return a magic square of the given size
         g = Generator()
         s = Splitter()
@@ -70,7 +86,7 @@ class MagicSquareGenerator:
                 return d2_list
 
 
-def main(size):
+def main(size):  # noqa: D102
     msg = MagicSquareGenerator()
     print(msg.generate(size))
 
