@@ -49,9 +49,9 @@ class Sentence:
 
 def main():  # noqa: D103
     sentence = Sentence("Hello unexplored world")  # pragma: no cover
-    print(*sentence)
+    print(*sentence)  # pragma: no cover
     sentence[1].capitalize = True  # pragma: no cover
-    print(sentence)
+    print(sentence)  # pragma: no cover
 
 
 if __name__ == "__main__":  # pragma: no cover
