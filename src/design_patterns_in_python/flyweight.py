@@ -6,7 +6,9 @@ from __future__ import annotations  # pragma: no cover
 
 
 class WordFormat:
-    """Class for storing formats"""
+    """Class for storing formats."""
+
+    __slots__ = ["capitalize"]
 
     def __init__(self, capitalize: bool = False) -> None:  # noqa: D107
         self.capitalize = capitalize
@@ -17,25 +19,25 @@ class Sentence:
 
     def __init__(self, plain_text: str) -> None:  # noqa: D107
         self.words = plain_text.split(" ")
-        self.formats = {}
+        self.formats: dict[int, WordFormat] = {}
 
-    def __iter__(self) -> Sentence:  # noqa: D107:
+    def __iter__(self) -> Sentence:  # noqa: D105:
         self.current = 0
         return self
 
-    def __next__(self) -> str:  # noqa: D107
+    def __next__(self) -> str:  # noqa: D105
         if self.current < len(self.words):
             self.current += 1
             return self.words[self.current - 1]
         else:
             raise StopIteration
 
-    def __getitem__(self, index: int) -> WordFormat:  # noqa: D107
+    def __getitem__(self, index: int) -> WordFormat:  # noqa: D105
         wf = WordFormat()
         self.formats[index] = wf
         return self.formats[index]
 
-    def __str__(self) -> str:  # noqa: D107
+    def __str__(self) -> str:  # noqa: D105
         result = []
         for i, word in enumerate(self.words):
             if i in self.formats and self.formats[i].capitalize:
