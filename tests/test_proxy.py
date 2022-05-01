@@ -39,3 +39,9 @@ class TestResponsiblePerson:
         assert rp.drink_and_drive() == f"Age {rp.age}: drink and drive: dead"
         rp.age = 20
         assert rp.drink_and_drive() == f"Age {rp.age}: drink and drive: dead"
+
+    def test_age(self):  # noqa: D102
+        rp = ResponsiblePerson(Person(10))
+        assert rp.age == 10
+        rp.age = 20
+        assert rp.age == 20

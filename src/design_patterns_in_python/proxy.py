@@ -52,16 +52,16 @@ class ResponsiblePerson:
         return f"Age {self.age}: drink and drive: dead"
 
 
-def main():  # noqa: D103
-    p = Person(10)  # pragma: no cover
-    rp = ResponsiblePerson(p)  # pragma: no cover
-    print(rp.drive())  # pragma: no cover
-    print(rp.drink())  # pragma: no cover
-    print(rp.drink_and_drive())  # pragma: no cover
+def main():  # noqa: D103, pragma: no cover
+    p = Person(10)
+    rp = ResponsiblePerson(p)
+    print(rp.drive())
+    print(rp.drink())
+    print(rp.drink_and_drive())
     rp.age = 20
-    print(rp.drive())  # pragma: no cover
-    print(rp.drink())  # pragma: no cover
-    print(rp.drink_and_drive())  # pragma: no cover
+    print(rp.drive())
+    print(rp.drink())
+    print(rp.drink_and_drive())
 
 
 if __name__ == "__main__":  # pragma: no cover
