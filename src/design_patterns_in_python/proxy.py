@@ -15,13 +15,13 @@ class Person:
         self.age = age
 
     def drink(self) -> str:  # noqa: D102
-        return "drinking"
+        return f"Age {self.age}: drinking"
 
     def drive(self) -> str:  # noqa: D102
-        return "driving"
+        return f"Age {self.age}: driving"
 
     def drink_and_drive(self) -> str:  # noqa: D102
-        return "driving while drunk"
+        return f"Age {self.age}: driving while drunk"
 
 
 class ResponsiblePerson:
@@ -40,27 +40,25 @@ class ResponsiblePerson:
 
     def drink(self) -> str:  # noqa: D102
         if self.age >= 18:
-            return "drinking"
-        return "no drinking: too young"
+            return f"Age {self.age}: drinking"
+        return f"Age {self.age}: no drinking: too young"
 
     def drive(self) -> str:  # noqa: D102
         if self.age >= 16:
-            return "driving"
-        return "not driving: too young"
+            return f"Age {self.age}: driving"
+        return f"Age {self.age}: not driving: too young"
 
     def drink_and_drive(self) -> str:  # noqa: D102
-        return "drink and drive: dead"
+        return f"Age {self.age}: drink and drive: dead"
 
 
 def main():  # noqa: D103
     p = Person(10)  # pragma: no cover
     rp = ResponsiblePerson(p)  # pragma: no cover
-    print(f"For age {rp.age}")
     print(rp.drive())  # pragma: no cover
     print(rp.drink())  # pragma: no cover
     print(rp.drink_and_drive())  # pragma: no cover
     rp.age = 20
-    print(f"For age {rp.age}")
     print(rp.drive())  # pragma: no cover
     print(rp.drink())  # pragma: no cover
     print(rp.drink_and_drive())  # pragma: no cover
