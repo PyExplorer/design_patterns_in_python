@@ -21,6 +21,7 @@ class TestPerson:
 
 class TestResponsiblePerson:
     """Tests for ResponsiblePerson."""
+
     def test_drink(self):  # noqa: D102
         rp = ResponsiblePerson(Person(10))
         assert rp.drink() == f"Age {rp.age}: no drinking: too young"
