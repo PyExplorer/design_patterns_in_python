@@ -46,7 +46,7 @@ class ResponsiblePerson:
     def drive(self) -> str:  # noqa: D102
         if self.age >= 16:
             return f"Age {self.age}: driving"
-        return f"Age {self.age}: not driving: too young"
+        return f"Age {self.age}: no driving: too young"
 
     def drink_and_drive(self) -> str:  # noqa: D102
         return f"Age {self.age}: drink and drive: dead"
