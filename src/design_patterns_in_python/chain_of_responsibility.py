@@ -38,6 +38,7 @@ class Creature(ABC):
     def defense(self) -> int:  # noqa: D102
         pass
 
+    @abstractmethod
     def query(self, source: Goblin, query: Query) -> None:  # noqa: D102
         pass
 
