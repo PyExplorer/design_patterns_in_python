@@ -1,4 +1,4 @@
-"""Chain fo responsibility
+"""Chain fo responsibility.
 
 A chain of components who all get a chance to process a command or a query,
 optionally having default processing implementation and an ability to terminate
@@ -19,7 +19,7 @@ class WhatToQuery(Enum):
 
 
 class Creature(ABC):
-    """Abstract for creatures"""
+    """Abstract for creatures."""
 
     def __init__(self, name: str, game: Game, attack: int, defense: int) -> None:  # noqa: D107
         self.initial_defense = defense
@@ -31,14 +31,14 @@ class Creature(ABC):
         return f"{self.name} in {self.game} with attack: {self.attack} and defence: {self.defense}"
 
     @abstractmethod
-    def attack(self):
+    def attack(self) -> int:  # noqa: D102
         pass
 
     @abstractmethod
-    def defense(self):
+    def defense(self) -> int:  # noqa: D102
         pass
 
-    def query(self, source, query):
+    def query(self, source: Goblin, query: Query) -> None:  # noqa: D102
         pass
 
 
@@ -83,6 +83,8 @@ class GoblinKing(Goblin):
 class Query:
     """Query."""
 
+    __slots__ = ["what_to_query", "value"]
+
     def __init__(self, initial_value: int, what_to_query: WhatToQuery) -> None:  # noqa: D107
         self.what_to_query = what_to_query
         self.value = initial_value
@@ -100,7 +102,8 @@ class Game:
 
 
 def main():  # noqa: D103, pragma: no cover
-    """
+    """Task.
+
     1. A goblin has base 1 attack/1 defense (1/1), a goblin king is 3/3.
     2. When the Goblin King is in play, every other goblin gets +1 Attack.
     3. Goblins get +1 to Defense for every other Goblin in play (a GoblinKing is a Goblin!).
