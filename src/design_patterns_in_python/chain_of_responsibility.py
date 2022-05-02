@@ -87,6 +87,11 @@ class Game:
 
 
 def main():  # noqa: D103, pragma: no cover
+    """
+    1. A goblin has base 1 attack/1 defense (1/1), a goblin king is 3/3.
+    2. When the Goblin King is in play, every other goblin gets +1 Attack.
+    3. Goblins get +1 to Defense for every other Goblin in play (a GoblinKing is a Goblin!).
+    """
     game = Game("Goblin fight")
 
     goblin = Goblin("Goblin 1", game)
