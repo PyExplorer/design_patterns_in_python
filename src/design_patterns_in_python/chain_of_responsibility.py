@@ -4,20 +4,30 @@ A chain of components who all get a chance to process a command or a query,
 optionally having default processing implementation and an ability to terminate
 the processing chain.
 """
+from __future__ import annotations  # pragma: no cover
 
 from abc import ABC
-from enum import Enum
 from abc import abstractmethod
+from enum import Enum
+
+
+class WhatToQuery(Enum):
+    """Actions enumerator."""
+
+    ATTACK = 1
+    DEFENSE = 2
 
 
 class Creature(ABC):
-    def __init__(self, name, game, attack, defense):
+    """Abstract for creatures"""
+
+    def __init__(self, name: str, game: Game, attack: int, defense: int) -> None:  # noqa: D107
         self.initial_defense = defense
         self.initial_attack = attack
         self.game = game
         self.name = name
 
-    def __str__(self):
+    def __str__(self) -> str:  # noqa: D105
         return f"{self.name} in {self.game} with attack: {self.attack} and defence: {self.defense}"
 
     @abstractmethod
@@ -33,56 +43,59 @@ class Creature(ABC):
 
 
 class Goblin(Creature):
-    def __init__(self, name, game, attack=1, defense=1):
+    """Simple Goblin."""
+
+    def __init__(self, name: str, game: Game, attack: int = 1, defense: int = 1) -> None:  # noqa: D107
         super().__init__(name, game, attack, defense)
 
     @property
-    def attack(self):
+    def attack(self) -> int:  # noqa: D102
         q = Query(self.initial_attack, WhatToQuery.ATTACK)
         for c in self.game.creatures:
             c.query(self, q)
         return q.value
 
     @property
-    def defense(self):
+    def defense(self) -> int:  # noqa: D102
         q = Query(self.initial_defense, WhatToQuery.DEFENSE)
         for c in self.game.creatures:
             c.query(self, q)
         return q.value
 
-    def query(self, source, query):
+    def query(self, source: Goblin, query: Query) -> None:  # noqa: D102:
         if self != source and query.what_to_query == WhatToQuery.DEFENSE:
             query.value += 1
 
 
 class GoblinKing(Goblin):
-    def __init__(self, name, game):
-        super().__init__(name, game, attack=3, defense=3)
+    """King Goblin."""
 
-    def query(self, source, query):
+    def __init__(self, name: str, game: Game, attack: int = 3, defense: int = 3) -> None:  # noqa: D107
+        super().__init__(name, game, attack, defense)
+
+    def query(self, source: Goblin, query: Query) -> None:  # noqa: D102:
         if self != source and query.what_to_query == WhatToQuery.ATTACK:
             query.value += 1
         else:
             super().query(source, query)
 
 
-class WhatToQuery(Enum):
-    ATTACK = 1
-    DEFENSE = 2
-
-
 class Query:
-    def __init__(self, initial_value, what_to_query):
+    """Query."""
+
+    def __init__(self, initial_value: int, what_to_query: WhatToQuery) -> None:  # noqa: D107
         self.what_to_query = what_to_query
         self.value = initial_value
 
 
 class Game:
-    def __init__(self, name):
-        self.creatures = []
+    """Game."""
+
+    def __init__(self, name: str) -> None:  # noqa: D107
+        self.creatures: list[Creature] = list()
         self.name = name
 
-    def __str__(self):
+    def __str__(self) -> str:  # noqa: D105
         return f"(Game: {self.name} with number of creatures: {len(self.creatures)})"
 
 
