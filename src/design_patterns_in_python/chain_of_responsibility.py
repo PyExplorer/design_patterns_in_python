@@ -121,7 +121,7 @@ def main():  # noqa: D103, pragma: no cover
     print(*game.creatures, sep="\n")
     print()
 
-    goblin3 = GoblinKing("Goblin 3", game)
+    goblin3 = GoblinKing("Goblin King", game)
     game.creatures.append(goblin3)
 
     print(*game.creatures, sep="\n")
