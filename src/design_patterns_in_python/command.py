@@ -13,6 +13,7 @@ class Action(Enum):
 
     DEPOSIT = 0
     WITHDRAW = 1
+    NOT_SUPPORTED = 2
 
 
 class Command:
