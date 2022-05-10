@@ -1,6 +1,5 @@
 """Tests for classes with interpreter pattern."""
 import pytest
-
 from src.design_patterns_in_python.interpreter import ExpressionProcessor
 
 
@@ -47,4 +46,16 @@ class TestExpressionProcessor:
         ep = ExpressionProcessor()
         ep.variables["x"] = 10
         ep.variables["y"] = 2
+        assert ep.calculate(test) == expected
+
+    @pytest.mark.parametrize(
+        "test, expected",
+        [
+            pytest.param("10x", 0),
+            pytest.param("x/y*x+y-x", 0),
+        ],
+    )
+    def test_failed_variable_calculator(self, test, expected):  # noqa: D102
+        ep = ExpressionProcessor()
+        ep.variables["x"] = "a"
         assert ep.calculate(test) == expected
