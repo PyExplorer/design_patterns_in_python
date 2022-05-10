@@ -1,9 +1,12 @@
 """Tests for classes with interpreter pattern."""
-from src.design_patterns_in_python.interpreter import Operator
-from src.design_patterns_in_python.interpreter import ExpressionProcessor
 import pytest
 
+from src.design_patterns_in_python.interpreter import ExpressionProcessor
+
+
 class TestExpressionProcessor:
+    """Tests for calculation."""
+
     @pytest.mark.parametrize(
         "test, expected",
         [
@@ -17,7 +20,7 @@ class TestExpressionProcessor:
             pytest.param("24/2/2-1+4", 9),
         ],
     )
-    def test_int_calculator(self, test, expected):
+    def test_int_calculator(self, test, expected):  # noqa: D102
         ep = ExpressionProcessor()
         assert ep.calculate(test) == expected
 
@@ -26,10 +29,9 @@ class TestExpressionProcessor:
         [
             pytest.param("10*x+2*x-3*x+x/5", 258),
             pytest.param("x/x*x+x-x", 5),
-
         ],
     )
-    def test_one_variable_calculator(self, test, expected):
+    def test_one_variable_calculator(self, test, expected):  # noqa: D102
         ep = ExpressionProcessor()
         ep.variables["x"] = 5
         assert ep.calculate(test) == expected
@@ -39,10 +41,9 @@ class TestExpressionProcessor:
         [
             pytest.param("10*x+2*y-3*y+x/2", 206),
             pytest.param("x/y*x+y-x", 42),
-
         ],
     )
-    def test_multiple_variable_calculator(self, test, expected):
+    def test_multiple_variable_calculator(self, test, expected):  # noqa: D102
         ep = ExpressionProcessor()
         ep.variables["x"] = 10
         ep.variables["y"] = 2
