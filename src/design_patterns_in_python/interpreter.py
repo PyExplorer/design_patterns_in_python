@@ -3,6 +3,7 @@
 A component that processes a structured data text data. Does so by turning it into
 separate lexical tokens (lexing) and then interpreting sequences of said tokens (parsing).
 """
+
 import re
 from enum import Enum
 
@@ -16,11 +17,11 @@ class Operator(Enum):
     DIV = "/"
 
     @classmethod
-    def list(cls):  # noqa: D102
-        return list(map(lambda c: c.value, cls))
+    def list(cls) -> list:  # noqa: D102
+        return list(map(lambda c: c.value, cls))  # type: ignore
 
     @classmethod
-    def re(cls):  # noqa: D102
+    def re(cls) -> str:  # noqa: D102
         return re.escape("".join(Operator.list()))
 
 
@@ -35,10 +36,10 @@ class ExpressionProcessor:
         None: lambda _, y: y,
     }
 
-    def __init__(self):  # noqa: D107
-        self.variables = {}
+    def __init__(self) -> None:  # noqa: D107
+        self.variables: dict = {}
 
-    def calculate(self, expression):  # noqa: D102
+    def calculate(self, expression: str) -> int:  # noqa: D102
         current = 0
         operator = None
 
