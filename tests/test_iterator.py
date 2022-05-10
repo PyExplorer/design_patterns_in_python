@@ -1,5 +1,4 @@
 """Tests for classes with iterator pattern."""
-
 from src.design_patterns_in_python.iterator import Node
 
 
