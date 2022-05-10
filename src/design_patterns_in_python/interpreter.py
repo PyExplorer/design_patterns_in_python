@@ -3,39 +3,42 @@
 A component that processes a structured data text data. Does so by turning it into
 separate lexical tokens (lexing) and then interpreting sequences of said tokens (parsing).
 """
-
-
 import re
 from enum import Enum
 
 
 class Operator(Enum):
+    """Operators enumerator."""
+
     PLUS = "+"
     MINUS = "-"
     MULT = "*"
     DIV = "/"
 
     @classmethod
-    def list(cls):
+    def list(cls):  # noqa: D102
         return list(map(lambda c: c.value, cls))
 
     @classmethod
-    def re(cls):
+    def re(cls):  # noqa: D102
         return re.escape("".join(Operator.list()))
 
+
 class ExpressionProcessor:
+    """Class for calculating expressions."""
+
     operations = {
         Operator.PLUS: lambda x, y: x + y,
         Operator.MINUS: lambda x, y: x - y,
         Operator.MULT: lambda x, y: x * y,
         Operator.DIV: lambda x, y: x / y,
-        None: lambda _, y: y
+        None: lambda _, y: y,
     }
 
-    def __init__(self):
+    def __init__(self):  # noqa: D107
         self.variables = {}
 
-    def calculate(self, expression):
+    def calculate(self, expression):  # noqa: D102
         current = 0
         operator = None
 
@@ -43,7 +46,7 @@ class ExpressionProcessor:
             op = re.split(rf"[{Operator.re()}]", part)
             first = op[0]
             try:
-                value = float(first)
+                value = int(first)
             except ValueError:
                 if len(first) == 1 and first[0] in self.variables:
                     value = self.variables[first[0]]
@@ -59,8 +62,15 @@ class ExpressionProcessor:
 
 
 def main():  # noqa: D103, pragma: no cover
-    """Task."""
+    """Task.
 
+    1. Expressions use integral values (e.g., '13')  ), single-letter variables defined in Variables,
+    as well as + and - operators only
+    2. There is no need to support braces or any other operations
+    3. If a variable is not found in variables   (or if we encounter a variable with >1 letter, e.g. ab),
+    the evaluator returns 0 (zero)
+    4. In case of any parsing failure, evaluator returns 0
+    """
     ep = ExpressionProcessor()
     ep.variables["x"] = 5
     print(ep.calculate("1+2"))
