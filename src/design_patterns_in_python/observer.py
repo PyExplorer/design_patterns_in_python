@@ -11,7 +11,7 @@ from typing import Any
 class Event(list):
     """Event's list."""
 
-    def __call__(self, *args, **kwargs):
+    def __call__(self, *args, **kwargs):  # noqa: D102
         for item in self:
             item(*args, **kwargs)
 
@@ -40,10 +40,10 @@ class Rat:
 
         self.game.rat_enters(self)
 
-    def __enter__(self) -> Rat:  # noqa: D102
+    def __enter__(self) -> Rat:  # noqa: D105
         return self
 
-    def __exit__(self, exc_type: Any, exc_val: Any, exc_tb: Any) -> None:  # noqa: D102
+    def __exit__(self, exc_type: Any, exc_val: Any, exc_tb: Any) -> None:  # noqa: D105
         self.game.rat_leaves(self)
 
     def enters(self, rat: Rat) -> None:  # noqa: D102
@@ -69,7 +69,6 @@ def main():  # noqa: D103, pragma: no cover
     please implement the Game and Rat classes so that, at any point in the game,
     the Attack value of a rat is always consistent.
     """
-
     game = Game()
     rat = Rat(game)
     print(rat.attack)
