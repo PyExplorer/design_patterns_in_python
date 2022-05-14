@@ -1,12 +1,13 @@
 """Tests for classes with observer pattern."""
+from unittest import TestCase
+
 from src.design_patterns_in_python.observer import Game
 from src.design_patterns_in_python.observer import Rat
-
-from unittest import TestCase
 
 
 class Evaluate(TestCase):
     """Tests for Observer."""
+
     def test_single_rat(self):  # noqa: D102
         game = Game()
         rat = Rat(game)
