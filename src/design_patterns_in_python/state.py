@@ -28,10 +28,10 @@ class CombinationLock:
         return self.status + str(digit)
 
     def enter_digit(self, digit: int):  # noqa: D102
-        if self.is_final_digit() and self.is_digit_correct(digit):
-            self.status = "OPEN"
-
-        elif self.is_digit_correct(digit):
+        if self.is_digit_correct(digit):
+            if self.is_final_digit():
+                self.status = "OPEN"
+                return
             self.status = self.update_status(digit)
             self.current_digit += 1
 
