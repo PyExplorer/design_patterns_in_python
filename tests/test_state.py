@@ -1,4 +1,5 @@
 from unittest import TestCase
+
 from src.design_patterns_in_python.state import CombinationLock
 
 
