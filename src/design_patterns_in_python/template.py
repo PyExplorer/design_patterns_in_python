@@ -20,6 +20,8 @@ class Creature:
 
 
 class CardGame(ABC):
+    """Card Game."""
+
     def __init__(self, creatures) -> None:  # noqa: D107
         self.creatures = creatures
 

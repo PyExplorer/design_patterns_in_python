@@ -2,8 +2,8 @@
 from unittest import TestCase
 
 from src.design_patterns_in_python.template import Creature
-from src.design_patterns_in_python.template import TemporaryDamageCardGame
 from src.design_patterns_in_python.template import PermanentDamageCardGame
+from src.design_patterns_in_python.template import TemporaryDamageCardGame
 
 
 class Evaluate(TestCase):
