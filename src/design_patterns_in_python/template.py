@@ -41,7 +41,7 @@ class CardGame(ABC):
 
         return c1_index if first.alive else c2_index
 
-    def hit(self, attacker, defender):  # noqa: D102
+    def hit(self, attacker, defender):  # noqa: D102, pragma: no cover
         pass  # implement this in derived classes
 
 
