@@ -29,7 +29,7 @@ def _visitor_impl(self, arg: Any) -> Any:
     """Actual visitor method implementation."""
     key = (_qualname(type(self)), type(arg))
     if key not in _methods:
-        raise Exception(f"Key {key} not found")
+        raise Exception(f"Key {key} not found")  # pragma: no cover
     method = _methods[key]
     return method(self, arg)
 
@@ -88,11 +88,11 @@ class ExpressionPrinter:
     def __init__(self):  # noqa: D107
         self.buffer = []
 
-    @visitor(Value)
+    @visitor(Value)  # type: ignore[no-redef]
     def visit(self, e: Value) -> None:  # noqa: D102
         self.buffer.append(str(e.value))
 
-    @visitor(AdditionExpression)
+    @visitor(AdditionExpression)  # type: ignore[no-redef]
     def visit(self, e: AdditionExpression) -> None:  # noqa: D102, F811
         self.buffer.append("(")
         self.visit(e.left)
@@ -100,7 +100,7 @@ class ExpressionPrinter:
         self.visit(e.right)
         self.buffer.append(")")
 
-    @visitor(MultiplicationExpression)  # noqa: F811
+    @visitor(MultiplicationExpression)  # type: ignore[no-redef]
     def visit(self, e: MultiplicationExpression) -> None:  # noqa: D102, F811
         self.visit(e.left)
         self.buffer.append("*")

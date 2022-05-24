@@ -28,7 +28,7 @@ class TokenMachine:
     """Token machine."""
 
     def __init__(self) -> None:  # noqa: D107
-        self.tokens: list[float] = []
+        self.tokens: list[Token] = []
 
     def add_token_value(self, value: float) -> Memento:  # noqa: D102
         return self.add_token(Token(value))
