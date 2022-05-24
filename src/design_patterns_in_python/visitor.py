@@ -73,6 +73,8 @@ class AdditionExpression:
 class MultiplicationExpression:
     """Multiplication."""
 
+    __slots__ = ["right", "left"]
+
     def __init__(self, left: AdditionExpression | Value, right: AdditionExpression | Value):  # noqa: D107
         self.right = right
         self.left = left
@@ -87,18 +89,18 @@ class ExpressionPrinter:
         self.buffer = []
 
     @visitor(Value)
-    def visit(self, e: Value) -> None:  # noqa: D102, F811
+    def visit(self, e: Value) -> None:  # noqa: D102
         self.buffer.append(str(e.value))
 
     @visitor(AdditionExpression)
-    def visit(self, e: AdditionExpression) -> None:  # noqa: D102
+    def visit(self, e: AdditionExpression) -> None:  # noqa: D102, F811
         self.buffer.append("(")
         self.visit(e.left)
         self.buffer.append("+")
         self.visit(e.right)
         self.buffer.append(")")
 
-    @visitor(MultiplicationExpression)
+    @visitor(MultiplicationExpression)  # noqa: F811
     def visit(self, e: MultiplicationExpression) -> None:  # noqa: D102, F811
         self.visit(e.left)
         self.buffer.append("*")
