@@ -7,6 +7,7 @@ May or may not directly expose state information.
 from __future__ import annotations  # pragma: no cover
 
 from copy import deepcopy
+from typing import List
 
 
 class Token:
@@ -28,7 +29,7 @@ class TokenMachine:
     """Token machine."""
 
     def __init__(self) -> None:  # noqa: D107
-        self.tokens = []
+        self.tokens: List[float] = []
 
     def add_token_value(self, value: float) -> Memento:  # noqa: D102
         return self.add_token(Token(value))
