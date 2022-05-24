@@ -52,12 +52,18 @@ def visitor(arg_type: Any) -> Any:
 
 
 class Value:
+    """Value."""
+
+    __slots__ = ["value"]
+
     def __init__(self, value: float):  # noqa: D107
         self.value = value
 
 
 class AdditionExpression:
     """Simple addition."""
+
+    __slots__ = ["right", "left"]
 
     def __init__(self, left: Value, right: Value):  # noqa: D107
         self.right = right
@@ -73,11 +79,15 @@ class MultiplicationExpression:
 
 
 class ExpressionPrinter:
+    """Output for expression."""
+
+    __slots__ = ["buffer"]
+
     def __init__(self):  # noqa: D107
         self.buffer = []
 
     @visitor(Value)
-    def visit(self, e: Value) -> None:  # noqa: D102
+    def visit(self, e: Value) -> None:  # noqa: D102, F811
         self.buffer.append(str(e.value))
 
     @visitor(AdditionExpression)
@@ -89,7 +99,7 @@ class ExpressionPrinter:
         self.buffer.append(")")
 
     @visitor(MultiplicationExpression)
-    def visit(self, e: MultiplicationExpression) -> None:  # noqa: D102
+    def visit(self, e: MultiplicationExpression) -> None:  # noqa: D102, F811
         self.visit(e.left)
         self.buffer.append("*")
         self.visit(e.right)
