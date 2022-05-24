@@ -4,6 +4,8 @@ from src.design_patterns_in_python.memento import TokenMachine
 
 
 class TestTokenMachine:
+    """Tests for TokenMachine."""
+
     def test_single_token(self):  # noqa: D102
         tm = TokenMachine()
         m = tm.add_token_value(123)
