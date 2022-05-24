@@ -7,7 +7,6 @@ of (possibly related) types.
 from __future__ import annotations  # pragma: no cover
 
 from typing import Any
-from typing import Union
 
 
 def _qualname(obj: Any) -> str:
