@@ -1,16 +1,8 @@
 Design_Patterns_In_Python
 =========================
 
-|Python Version| |License|
-
 |Tests| |Codecov| |pre-commit| |Black|
 
-.. |Python Version| image:: https://img.shields.io/pypi/pyversions/design_patterns_in_python
-   :target: https://pypi.org/project/design_patterns_in_python
-   :alt: Python Version
-.. |License| image:: https://img.shields.io/pypi/l/design_patterns_in_python
-   :target: https://opensource.org/licenses/MIT
-   :alt: License
 .. |Tests| image:: https://github.com/PyExplorer/design_patterns_in_python/workflows/Tests/badge.svg
    :target: https://github.com/PyExplorer/design_patterns_in_python/actions?workflow=Tests
    :alt: Tests
