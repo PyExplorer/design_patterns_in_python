@@ -3,6 +3,7 @@ Design_Patterns_In_Python
 
 |Tests| |Codecov| |pre-commit| |Black|
 
+
 .. |Tests| image:: https://github.com/PyExplorer/design_patterns_in_python/workflows/Tests/badge.svg
    :target: https://github.com/PyExplorer/design_patterns_in_python/actions?workflow=Tests
    :alt: Tests
@@ -20,30 +21,9 @@ Design_Patterns_In_Python
 Features
 --------
 
-* TODO
+Homework for the course "Design Patterns in Python"
 
-
-Requirements
-------------
-
-* TODO
-
-
-Installation
-------------
-
-You can install *Design_Patterns_In_Python* via pip_ from PyPI_:
-
-.. code:: console
-
-   $ pip install design_patterns_in_python
-
-
-Usage
------
-
-Please see the `Command-line Reference <Usage_>`_ for details.
-
+https://www.udemy.com/course/design-patterns-python/
 
 Contributing
 ------------
